@@ -6,8 +6,7 @@ h2 {
 }
 
 .container{
-	
-	margin:auto;
+	width: 1200px;
 	border:1px;
 	box-shadow:0 0 10px #125;
 	margin-top: 0px;
@@ -20,7 +19,6 @@ h2 {
 	overflow: hidden;
 	background-color: white;
 	opacity: 0.9;
-	margin-top:20px;
 }
 
 .content{
@@ -120,7 +118,5 @@ small{
 }
 
 /* ---------Fin inscription----------------*/
-.card-title{
-	color: blue;
-}
+
 

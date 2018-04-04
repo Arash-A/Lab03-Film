@@ -2,11 +2,11 @@
 
 }
 
-#login, #inscription, #nouveauFilm, #template, #modifierFilm, #nouveauCategorie {
+#login, #inscription, #nouveauFilm, #template, #modifierFilm {
 	margin: auto;
 	margin-bottom:20px;
 	display: table;
-	width:300px;
+	width:250px;
 }
 
 .navbtn {
@@ -25,10 +25,6 @@
 
 .show {
 	display: block;
-}
-
-.active{
-   background-color: blue;
 }
 
 .page {
@@ -69,3 +65,4 @@
 select.error, textarea.error, input.error {
     color:#FF0000;
 }
+

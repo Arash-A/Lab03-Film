@@ -2,10 +2,10 @@
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 05, 2018 at 02:25 AM
--- Server version: 5.7.17
--- PHP Version: 5.6.30
+-- Hôte : 127.0.0.1
+-- Généré le :  mar. 27 fév. 2018 à 21:15
+-- Version du serveur :  5.7.17
+-- Version de PHP :  7.1.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -17,25 +17,25 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-CREATE DATABASE IF NOT EXISTS `bdfilms` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `bdfilms`
+
 --
--- Database: `bdfilms`
+-- Base de données :  `bdfilms`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorie`
+-- Structure de la table `categorie`
 --
 
+DROP TABLE IF EXISTS `categorie`;
 CREATE TABLE `categorie` (
   `id` int(11) NOT NULL,
   `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `categorie`
+-- Déchargement des données de la table `categorie`
 --
 
 INSERT INTO `categorie` (`id`, `nom`) VALUES
@@ -48,9 +48,10 @@ INSERT INTO `categorie` (`id`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tabfilms`
+-- Structure de la table `tabfilms`
 --
 
+DROP TABLE IF EXISTS `tabfilms`;
 CREATE TABLE `tabfilms` (
   `id` int(11) NOT NULL,
   `titre` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -58,22 +59,30 @@ CREATE TABLE `tabfilms` (
   `categorie` int(10) NOT NULL,
   `duree` int(11) NOT NULL,
   `prix` decimal(10,0) NOT NULL,
-  `pochette` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `video_link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `publier` tinyint(1) NOT NULL
+  `pochette` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tabfilms`
+-- Déchargement des données de la table `tabfilms`
 --
 
+INSERT INTO `tabfilms` (`id`, `titre`, `realisateur`, `categorie`, `duree`, `prix`, `pochette`) VALUES
+(1, 'aa', 'qq', 2, 11, '22', '18de31e39e00a8db46d08768bd03d28cdc29321d.jpe'),
+(2, 'aa', 'ss', 3, 11, '22', '9335ad3731f278c2c40349daf6df4b9448628aee.jpe'),
+(3, 'bb', 'bb', 1, 22, '33', '508604574269225144e48033f540e2396bc3243b.jpe'),
+(4, 'Star War', 'George Lucas', 5, 133, '18', '0b5cecda608ecbb48a409cc163678480115441dc.jpe'),
+(5, 'Star War2', 'George Lucas', 5, 133, '199', '0eb9482312733d9b94102d4397a70bb946e11835.jpe'),
+(6, 'rr', 'tt', 1, 34, '67', '17edd4f79d5800eb32a77c0ae2a559c2b97d49b4.jpe'),
+(7, 'Harry Porter', 'Rolling', 5, 200, '34', 'f6c0d2ce56621a5bde514591f923a10f00da265e.jpe'),
+(8, 'aa', 'ww', 1, 11, '22', '8989cde27a4bba89e47b1c33921bef7e9012dc91.jpe');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -85,56 +94,55 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `nom`, `prenom`, `courriel`, `mdp`, `adresse`, `role`) VALUES
-(1, 'user', 'user', 'user@film.com', '$2y$10$u3o6uZ2/LxxkCt0mJy/BIugScCZykyK/7Epb26pdaw0fq.P6aKrHy', 'user', 1),
+(3, 'user', 'user', 'user@film.com', '$2y$10$sjQGxxGiak1Mwwcen1/SgObaYsNZLEN2027QXLWut7yg4.2nrpoye', 'user', 1),
 (2, 'admin', 'admin', 'admin@film.com', '$2y$10$u3o6uZ2/LxxkCt0mJy/BIugScCZykyK/7Epb26pdaw0fq.P6aKrHy', 'admin', 0),
-(3, 'aa', 'aa', 'aaa@cc.com', '$2y$10$aEu3tspkKd6Z/95QVe/npeTYddrplqG5IU7b/UXGWWllQIgNyPd8.', 'aaa', 1),
-
-
---
--- Indexes for dumped tables
---
+(5, 'aa', 'aa', 'aaa@cc.com', '$2y$10$aEu3tspkKd6Z/95QVe/npeTYddrplqG5IU7b/UXGWWllQIgNyPd8.', 'aaa', 1);
 
 --
--- Indexes for table `categorie`
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `categorie`
 --
 ALTER TABLE `categorie`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tabfilms`
+-- Index pour la table `tabfilms`
 --
 ALTER TABLE `tabfilms`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `categorie`
+-- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `tabfilms`
+-- AUTO_INCREMENT pour la table `tabfilms`
 --
 ALTER TABLE `tabfilms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

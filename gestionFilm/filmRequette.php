@@ -1,4 +1,5 @@
 <?php
+function ajouterFilm() {
 	require_once("../dal/requetteFilm.php");
 	require_once("../model/film.php");
 	$titre=$_POST['titre'];
@@ -6,6 +7,8 @@
 	$realisateur=$_POST['realisateur'];
 	$categorie=$_POST['categorie'];
 	$prix=$_POST['prix'];
+	$url="";
+	$publier = 0;
 	$dossier="../images/";
 	$nomPochette=sha1($titre.time());
 	
@@ -22,14 +25,37 @@
 	}	
 	
 	//echo "$dossier.$nomPochette.$extension";
-	$fm = new Film(0, $titre, $realisateur, $categorie, $duree, $prix, $pochette);
+	$fm = new Film(0, $titre, $realisateur, $categorie, $duree, $prix, $pochette, $url, $publier);
 
 	$aa = enregistre($fm);
 		
-	echo "$aa";
-	
+	echo "$aa";	
+}
 
-	
+function lire() {
+	require_once("../dal/requetteFilm.php");
+	require_once("../model/film.php");
+	$film = lireTous();
+//	$titre = $film->getTitre();
+//	print_r($film);
+	echo json_encode($film);
+}
 
-
+	if (isset($_GET["op"])) {
+		$op = $_GET["op"];
+	} else if (isset($_POST["op"])){
+		$op = $_POST["op"];
+	}
+//echo json_encode($op);
+switch ($op) {
+	case 'ajouterFilm':
+		ajouterFilm();
+		break;
+	case 'lire':
+		lire();
+		break;
+	case 'lire':
+		lire();
+		break;
+}
 ?>

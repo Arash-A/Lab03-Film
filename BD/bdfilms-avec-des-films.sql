@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- Database: `bdfilms`
 --
 CREATE DATABASE IF NOT EXISTS `bdfilms` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `bdfilms`
+USE `bdfilms`;
 -- --------------------------------------------------------
 
 --

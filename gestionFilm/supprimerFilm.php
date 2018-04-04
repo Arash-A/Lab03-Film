@@ -6,4 +6,11 @@
 	$aa = supprimerParId($id);
 		
 	echo JSON_encode($aa);
+	
+	//echo "$prix";
+	
+
+	
+
+
 ?>

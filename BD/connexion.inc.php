@@ -1,4 +1,6 @@
 <?php
+	define("USAGER","root");
+	define("PASSE","");
 	try {
 	  $dns = 'mysql:host=localhost;dbname=bdfilms';
 	  $options = array(
