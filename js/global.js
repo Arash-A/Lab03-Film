@@ -41,8 +41,9 @@ $(function(){
                },
 
                submitHandler: function(form) {  
-                alert("valide");	
-                enregUsager();
+                alert("login");	
+                //enregUsager();
+                //alert("valide");	
               }
 
            });
@@ -85,8 +86,8 @@ $(function(){
                   }
                },
                submitHandler: function(form) {  
-                alert("valide");	
-                //enregUsager();
+                alert("inscription");	
+                enregUsager();
               }
 
            });	

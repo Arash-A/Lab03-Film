@@ -6,11 +6,12 @@
 		global $tabRes;	
  		$prenom=$_POST['prenomInscri'];
 		$nom=$_POST['nomInscri'];
+		$adress=$_POST['adresseInscri'];
 		$courriel=$_POST['courrielInscri'];
 		$mdp=$_POST['motdepasseInscri'];
 		$hash = password_hash($mdp, PASSWORD_DEFAULT); 
 		try{
-  			$requete="SELECT * FROM connexion WHERE courriel = ? ";
+  			$requete="SELECT * FROM users WHERE courriel = ? ";
 			$unModele=new filmsModele($requete,array($courriel));
 			$stmt=$unModele->executer();
 			//$tabRes['msg']=$stmt->fetch(PDO::FETCH_OBJ);
@@ -19,13 +20,10 @@
 				$tabRes['action']="enregistrer";
 				$tabRes['msg']="existe";
 			}else{
-					$requete=" INSERT INTO connexion VALUES(0,?,?,?) ";
-					$unModele=new filmsModele($requete,array($courriel,$hash,"utilisateur"));
+					$requete=" INSERT INTO users VALUES(0,?,?,?,?,?,0) ";
+					$unModele=new filmsModele($requete,array($nom,$prenom,$courriel,$hash,$adress));
 					$unModele->executer();
  					$lasId=$unModele->LAST_ID;
-					$requete="INSERT INTO utilisateur VALUES(0,?,?,?,?)";
-					$unModele=new filmsModele($requete,array($nom,$prenom,$dateNaissance,$lasId));
-					$stmt=$unModele->executer();
 					$tabRes['action']="enregistrer";
 					$tabRes['msg']="ok";
 			} 
