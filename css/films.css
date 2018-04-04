@@ -18,7 +18,9 @@
     outline:none;
 	margin-top: 15px;
 }
-
+.error {
+    color: red;
+}
 .hide {
 	display: none;
 }

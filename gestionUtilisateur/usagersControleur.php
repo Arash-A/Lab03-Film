@@ -4,15 +4,14 @@
 
 	function enregistrer(){
 		global $tabRes;	
- 		$prenom=$_POST['inputPrenom'];
-		$nom=$_POST['inputNom'];
-		$dateNaissance=$_POST['inputDateNaissance'];
-		$courriel=$_POST['inputCourEnr'];
-		$mdp=$_POST['inputMotPasseEnr'];
+ 		$prenom=$_POST['prenomInscri'];
+		$nom=$_POST['nomInscri'];
+		$courriel=$_POST['courrielInscri'];
+		$mdp=$_POST['motdepasseInscri'];
 		$hash = password_hash($mdp, PASSWORD_DEFAULT); 
 		try{
   			$requete="SELECT * FROM connexion WHERE courriel = ? ";
-			$unModele=new circuitsModele($requete,array($courriel));
+			$unModele=new filmsModele($requete,array($courriel));
 			$stmt=$unModele->executer();
 			//$tabRes['msg']=$stmt->fetch(PDO::FETCH_OBJ);
 			
@@ -21,11 +20,11 @@
 				$tabRes['msg']="existe";
 			}else{
 					$requete=" INSERT INTO connexion VALUES(0,?,?,?) ";
-					$unModele=new circuitsModele($requete,array($courriel,$hash,"utilisateur"));
+					$unModele=new filmsModele($requete,array($courriel,$hash,"utilisateur"));
 					$unModele->executer();
  					$lasId=$unModele->LAST_ID;
 					$requete="INSERT INTO utilisateur VALUES(0,?,?,?,?)";
-					$unModele=new circuitsModele($requete,array($nom,$prenom,$dateNaissance,$lasId));
+					$unModele=new filmsModele($requete,array($nom,$prenom,$dateNaissance,$lasId));
 					$stmt=$unModele->executer();
 					$tabRes['action']="enregistrer";
 					$tabRes['msg']="ok";
@@ -45,7 +44,7 @@
 		$mdp=$_POST['inputMotPasseConn'];
 		try{
 			$requete="SELECT * FROM connexion WHERE courriel = ? ";
-			$unModele=new circuitsModele($requete,array($courriel));
+			$unModele=new filmsModele($requete,array($courriel));
 			$stmt=$unModele->executer();
 			$tabRes['action']="connecter";
 			//$tabRes['msg']=$stmt->fetch(PDO::FETCH_OBJ);
@@ -63,7 +62,7 @@
 					$_SESSION['courriel']=$courriel;
 					
 					$requete="SELECT idUtilisateur FROM utilisateur WHERE idConnexion = ? ";
-					$unModele=new circuitsModele($requete,array($idConnexion));
+					$unModele=new filmsModele($requete,array($idConnexion));
 					$stmt=$unModele->executer();
 					$ligne=$stmt->fetch(PDO::FETCH_OBJ);
 					$idUtilisateur=$ligne->idUtilisateur;
@@ -123,7 +122,7 @@
 
 			if ($_SESSION['role']=="admin") {
 				$requete="SELECT courriel FROM connexion WHERE idConnexion = ? ";
-				$unModele=new circuitsModele($requete,array($id));
+				$unModele=new filmsModele($requete,array($id));
 				$stmt=$unModele->executer();
 				$ligne=$stmt->fetch(PDO::FETCH_OBJ);
 				$tabRes['courriel']=$ligne->courriel; 
@@ -132,13 +131,13 @@
 				$tabRes['msg']="OK";
 				try{
 					$requete="SELECT courriel FROM connexion WHERE idConnexion = ? ";
-					$unModele=new circuitsModele($requete,array($id));
+					$unModele=new filmsModele($requete,array($id));
 					$stmt=$unModele->executer();
 					$ligne=$stmt->fetch(PDO::FETCH_OBJ);
 					$tabRes['courriel']=$ligne->courriel; 
 
 					$requete="SELECT * FROM utilisateur WHERE idConnexion = ? ";
-					$unModele=new circuitsModele($requete,array($id));
+					$unModele=new filmsModele($requete,array($id));
 					$stmt=$unModele->executer();
 					$ligne=$stmt->fetch(PDO::FETCH_OBJ);
 					$tabRes['utilisateurs']=array();
@@ -162,13 +161,13 @@
 			
 			try{
 				$requete="SELECT courriel FROM connexion WHERE idConnexion = ? ";
-				$unModele=new circuitsModele($requete,array($id));
+				$unModele=new filmsModele($requete,array($id));
 				$stmt=$unModele->executer();
 				$ligne=$stmt->fetch(PDO::FETCH_OBJ);
 				$tabRes['courriel']=$ligne->courriel;
 				
 				$requete="SELECT * FROM utilisateur WHERE idConnexion = ? ";
-				$unModele=new circuitsModele($requete,array($id));
+				$unModele=new filmsModele($requete,array($id));
 				$stmt=$unModele->executer();
 				$ligne=$stmt->fetch(PDO::FETCH_OBJ);
 				$tabRes['utilisateurs']=array();

@@ -14,38 +14,35 @@
 		<script src="js/bootstrap.js"></script>
 		<script src="js/jquery.validate.js"></script>
 		<script src="js/film.js"></script>
+		<script src="js/global.js"></script>
 		<script src="js/mustache.js"></script>
 		<script src="gestionFilm/filmControleurVue.js"></script>
 		<script src="gestionFilm/filmRequette.js"></script>
+		<script src="gestionUtilisateur/usagersRequetes.js"></script>
+		<script src="gestionUtilisateur/usagersControleur.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
+
 		<div id="container" class="container"> 
+
+			<!--*********************  Header ************************-->
 			<nav id="nav" class="navbar navbar-default">
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-film" ></span></a>
 					</div>
-										
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav navbar-right">
-							<li><button type="button" class="navbtn" id="myBtn1"><span class="glyphicon glyphicon-shopping-cart"></span>Panier</li>
-							<!--li><a href="connexion.html" id="myBtn1"><span class="glyphicon glyphicon-log-in" ></span> Connexion</a></li-->
-							<li><button type="button" class="navbtn" id="connexionBtn"><span class="glyphicon glyphicon-log-in" ></span> Connexion</li>
+							<li><button type="button" class="navbtn hide" id="myBtn1"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</li>
+							<li><button type="button" class="navbtn" id="inscriptionBtn"><span class="glyphicon glyphicon-log-in" ></span> S'inscrire</li>
+							<li><button type="button" class="navbtn" id="connexionBtn"><span class="glyphicon glyphicon-log-in" ></span> Se connecter</li>
+							<li><button type="button" class="navbtn hide" id="deConnexionBtn"><span class="glyphicon glyphicon-log-out" ></span> Deconnecter</li>
 						</ul>						
-						<form action="" class="navbar-form ">
-							<div class="input-group col-md-4 pull-right">
-								<input type="text" class="form-control" placeholder="Search Film..">
-								<span class="input-group-btn">
-								  <button class="btn btn-default" type="button">
-									<span class="glyphicon glyphicon-search"></span>
-								  </button>
-								</span>
-							</div>
-						</form>								
 					</div>											
 				</div>
 			</nav>
+					<!--*********************  Header ************************-->
 			
 			<div id="menu" class="col-md-2 show">
 				<h4>Catégorie</h4>
@@ -89,24 +86,21 @@
 				<form id="loginF">
 					<fieldset>
 							<legend>CONNEXION</legend>
-				  <div class="form-group">
-					<label for="courrielLogin">Courriel</label>
-					<input type="email" class="form-control" id="courrielLogin" name="courrielLogin" aria-describedby="emailHelp" placeholder="votre courriel">
-				  </div>
-				  <div class="form-group">
-					<label for="motdepasseLogin">Mot de passe</label>
-					<input type="password" class="form-control" id="motdepasseLogin" name="motdepasseLogin" placeholder="Mot de passe">
-				  </div>
-				  <button type="submit" id="btnLogin" class="btn btn-primary">Submit</button><br/><br/>
-				  
-				 </form>	
-				  <p>Pas encore un membre?
-				  <button type="button" class="navbtn" id="inscriptionBtn"/><span style="color:blue">Inscription</span></button></p>
+							<div class="form-group">
+								<label for="courrielLogin">Courriel</label>
+								<input type="email" class="form-control" id="courrielLogin" name="courrielLogin" aria-describedby="emailHelp" placeholder="votre courriel">
+							</div>
+							<div class="form-group">
+								<label for="motdepasseLogin">Mot de passe</label>
+								<input type="password" class="form-control" id="motdepasseLogin" name="motdepasseLogin" placeholder="Mot de passe">
+							</div>
+							<button type="submit" id="btnLogin" class="btn btn-primary">Submit</button><br/><br/>
+						</form>	
 				  </fieldset>				
 			</div>
 			
 			<div class="hide" id="inscription"> 
-				<form id="inscriptionF">
+				<form id="inscriptionF" name="inscriptionF" method="POST" >
 					<fieldset>
 					<legend>INSCRIPTION</legend>
 				  <div class="form-group">
@@ -133,7 +127,7 @@
 					<label for="motdepasseConfirm">Confirmation de mot de passe</label>
 					<input type="password" class="form-control" id="motdepasseConfirm" name="motdepasseConfirm" placeholder="Mot de passe">
 				  </div>
-				  <button type="submit" id="btnNouveauUser" class="btn btn-primary">Submit</button>
+				  <button type="submit" id="btnNouveauUser" class="btn btn-primary" >Soumettre</button>
 				  </fieldset>
 				</form>	
 			</div>

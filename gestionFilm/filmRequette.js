@@ -1,7 +1,7 @@
  $(function(){
 	 
 	 /////////// login /////////////////////////////
-			 $("#loginF").validate({
+/* 			 $("#loginF").validate({
 				// Specify validation rules
 				rules: {
 				  courrielLogin: {
@@ -100,7 +100,7 @@
 						},	
 					});							
 				}
-			});	
+			});	 */
 
 /////////// create new film and save in database /////////////////////////////
 			 $("#nouveauF").validate({

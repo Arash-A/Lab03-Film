@@ -18,8 +18,8 @@ function enregUsager(){
 		//cache : false,
 		contentType : false,
 		processData : false,
-		success : function (reponse){ //alert(reponse);
-			usagersVue(reponse); //appel de fonction javascript dans usagersControleurVue.js
+		success : function (reponse){ alert(reponse);
+			//usagersVue(reponse); //appel de fonction javascript dans usagersControleurVue.js
 		},
 		fail : function (err){
 			alert(1111);

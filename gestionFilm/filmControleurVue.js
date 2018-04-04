@@ -21,13 +21,7 @@
 			
 			
 			///////////// click connexion button and display login page ///////////////////
-			$('#connexionBtn').on("click", function(){
-				$('#menu').addClass("hide").removeClass("show");
-				$('#main').addClass("hide").removeClass("show");
-				$('#login').addClass("show").removeClass("hide");
-				$('#inscription').addClass("hide").removeClass("show");
-				$('#nouveauFilm').addClass("hide").removeClass("show");
-			})
+			
 			
 			
 			
@@ -69,13 +63,7 @@
 			
 			
 			/////////// click inscription button and display inscription page ///////////////
-			$('#inscriptionBtn').on("click", function(){
-				$('#menu').addClass("hide").removeClass("show");
-				$('#main').addClass("hide").removeClass("show");
-				$('#login').addClass("hide").removeClass("show");
-				$('#inscription').addClass("show").removeClass("hide");
-				$('#nouveauFilm').addClass("hide").removeClass("show");
-			})
+			
 
 			
 			

@@ -1,6 +1,6 @@
 <?php
 require_once("connexion.inc.php");
-class circuitsModele {
+class filmsModele {
 	private $requete;
 	private $params;
 	private $connexion;
