@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9e241ebe-5868-441f-a93c-1890e943af06" name="EasyPHP" url="http://127.0.0.1:8888/edsa-srverPHP/Labo2/ref">
+        <fileTransfer port="0" accessType="LOCAL" />
+      </webServer>
+    </option>
+  </component>
+</project>

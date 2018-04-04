@@ -1,0 +1,126 @@
+/*-----------Début partagé-------------*/
+
+h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.container{
+	
+	margin:auto;
+	border:1px;
+	box-shadow:0 0 10px #125;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding: 0px;
+	
+}
+
+.well{
+	overflow: hidden;
+	background-color: white;
+	opacity: 0.9;
+	margin-top:20px;
+}
+
+.content{
+	margin-top: 30px;
+}
+
+.panel-default > .panel-heading {
+	background-color: lightgrey;
+}
+
+legend{
+	font-weight: bold;
+}
+
+/*-----------Fin partagé-------------*/
+
+/*-----------Début menu-------------*/
+
+.navbar {
+	font-family: Times Courier;
+	font-size: 17px !important;
+    letter-spacing: 4px;
+	margin-top: 0px;
+    margin-bottom: 10px;
+    background-color: lightgray;
+    opacity: 0.9;
+    border: 0;
+}
+
+.navbar li a {
+    color: black !important;
+}
+
+
+.navbar-nav li a:hover {
+    color: white !important;
+}
+
+/* The active link */
+.navbar-nav li.active a {
+    color: #fff !important;
+
+}		
+
+.navbar-brand img {
+	width : 50px;
+	height : 30px;
+}
+
+.card {
+	margin:10px;
+}
+
+/*-----------Fin menu-------------*/
+
+/*-----------Debut footer-------------*/
+
+.copyright { 
+	background-color:lightgrey;
+	/*opacity: 0.9;*/
+	min-height:40px; 
+	overflow: hidden;
+}
+
+.copyright p { 
+	font-size: 14px !important;
+	font-weight: bold;
+	text-align:center; 
+	color: black;
+	padding:10px 0; 
+	margin-bottom:0px;
+}
+
+/*-----------Fin footer-------------*/
+
+
+
+/* ---------Debut panier----------------*/
+
+.content h3 {
+	margin-left: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+/* ---------Debut inscription----------------*/
+
+small{
+	color: red;
+	margin-left: 10px;
+}
+
+
+.small{
+	color: black;
+	margin-left: 0px;
+}
+
+/* ---------Fin inscription----------------*/
+.card-title{
+	color: blue;
+}
+
