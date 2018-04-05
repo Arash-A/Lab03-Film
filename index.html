@@ -34,7 +34,7 @@
 					</div>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav navbar-right">
-							<li><button type="button" class="navbtn hide" id="myBtn1"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</li>
+							<li><button type="button" class="navbtn hide" id="myBtn1" onclick="afficherPanier()"><span class="glyphicon glyphicon-shopping-cart"></span> Panier</li>
 							<li><button type="button" class="navbtn" id="inscriptionBtn"><span class="glyphicon glyphicon-log-in" ></span> S'inscrire</li>
 							<li><button type="button" class="navbtn" id="connexionBtn"><span class="glyphicon glyphicon-log-in" ></span> Se connecter</li>
 							<li><button type="button" class="navbtn hide" id="deConnexionBtn"><span class="glyphicon glyphicon-log-out" ></span> Deconnecter</li>
@@ -54,7 +54,6 @@
 				<h4>Gestion</h4>
 				  <ul class="nav nav-pills nav-stacked">
 					<li id="liGestionFilm" class="active"><a class="menuGestionFilm" href="#">Gestion de film</a></li>
-					<li id="liGestionMembre"><a class="menuGestionMembre" href="#">Gestion de membre</a></li>
 				  </ul>
 	        </div>
 			
@@ -67,14 +66,12 @@
 									</a-->
 									<p><a class="youtube" href="https://youtu.be/jN4V0zWO3lM" title="voir la bande-annonce"><img class="card-img-top" src="images/{{pochette}}" alt="Card image cap" width=100 height=140></a></p>						
 								<h5 class="card-title">
-									<a href="images/1.jpe" target="_blank">
 										<p class="card-text">{{titre}}</p>
-									</a>
 								</h5>							
 								<div class="card-body">
 									<p class="card-text">{{realisateru}}</p>
 									<p class="card-text">{{prix}}</p>
-									<a href="#" class="btn btn-primary">Panier</a>
+									<a href="#" class="btn btn-primary" onclick="ajouterAuPanier({{id}})">Panier</a>
 								</div>							
 							</div>
 						</div>
@@ -154,7 +151,6 @@
 						  <option value="4">Horreur</option>
 						  <option value="5">Science Fiction</option-->
 					</select><br/><br/>
-					<p>Trouve pas une bonne categorie?<a href='#' class='nouveauCategorie' id='nouveauCategrie'><span style='color:blue'>ajouter une nouvelle catégorie</span></a></p>
 				  </div>
 				  <div class="form-group">
 					<label for="duree">Durée</label>
@@ -167,7 +163,11 @@
 				  <div class="form-group">
 					<label for="pochette">Pochette</label>
 					<input type="file" class="form-control" id="pochette" name="pochette" value="" placeholder="téléverser une pochette">
-				  </div>
+					</div>
+					<div class="form-group">
+						<label for="url">Pochette</label>
+						<input type="text" class="form-control" id="url" name="url" value="" placeholder="http://...">
+						</div>
 				  <input type="hidden" id="idd" name="idd" value="0">
 				  <button type="submit" id="btnNouveauFilm" class="btn btn-primary">Submit</button>
 				  <button type="button" id="btnCancelFilm" class="btn btn-primary">Annulé</button>
@@ -195,7 +195,30 @@
 						<tbody id="tb"></tbody>
 					</table>
 				</div>
-			</div>		
+			</div>
+			
+			<div id="panier" class="col-md-10 hide">
+				<div class="col-md-10 center"><br/>
+				<h4><a href="#" id="myBtn2" onclick="retour()"><span class="glyphicon glyphicon-circle-arrow-left">Retour</span></a></h4>
+				
+				<h2>Votre Panier</h2><br/><br/>
+					<table class="table table-striped table-hover table-users">
+						<thead>
+							<tr>   					
+								<!--th>ID</th-->
+								<th>Titre</th>
+								<th>Réalisateur</th>
+								<th>Catégorie</th>
+								<th>Pochette</th>
+								<th>Nombre</th>
+								<th>Prix</th>								
+								<th></th>
+							</tr>
+						</thead>
+						<tbody id="tbPanier"></tbody>
+					</table>
+				</div>
+			</div>				
 			
 	        <footer id="footer" class="copyright  col-md-12">
 			      <p>© 2018 - Maisonneuve</p>

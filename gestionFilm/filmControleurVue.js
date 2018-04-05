@@ -69,7 +69,13 @@
 			
  })			
 			
-		
+ function retour() {
+	afficherFilm('gestionFilm/filmRequette.php', '0');
+	setCategorie();
+	$('#menu').addClass("show").removeClass("hide");
+	$('#main').addClass("show").removeClass("hide");
+	$('#panier').addClass("hide").removeClass("show");
+}		
 		
 		
 		 
