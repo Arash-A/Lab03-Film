@@ -2,20 +2,15 @@ $(function(){
 
 
   $('#connexionBtn').on("click", function(){
-    $('#menu').addClass("hide").removeClass("show");
-    $('#main').addClass("hide").removeClass("show");
+    toutHide();
     $('#login').addClass("show").removeClass("hide");
-    $('#inscription').addClass("hide").removeClass("show");
-    $('#nouveauFilm').addClass("hide").removeClass("show");
   })
   
   $('#inscriptionBtn').on("click", function(){
-    $('#menu').addClass("hide").removeClass("show");
-    $('#main').addClass("hide").removeClass("show");
-    $('#login').addClass("hide").removeClass("show");
+    toutHide();
     $('#inscription').addClass("show").removeClass("hide");
-    $('#nouveauFilm').addClass("hide").removeClass("show");
   })
+  
     /////////// login /////////////////////////////
                 $("#loginF").validate({
                // Specify validation rules
@@ -89,14 +84,14 @@ $(function(){
               }
 
            });	
-              /***** Ajax loader gif *******/
-   $(document).ajaxStart(function() {
+  /***** Ajax loader gif *******/
+/*    $(document).ajaxStart(function() {
       $("#fadeAj").css("display", "block");
       $("#modalAj").css("display", "block");
     });
     $(document).ajaxComplete(function() {
         $("#modalAj").css("display", "none");
         $("#fadeAj").css("display", "none");
-    });
+    }); */
     /*****Fin  Ajax loader gif *******/
 })

@@ -76,32 +76,7 @@
 			unset($unModele);
 		}
 	}
-	
-	/* function enlever(){
-		global $tabRes;	
-		$idf=$_POST['numE'];
-		try{
-			$requete="SELECT * FROM films WHERE idf=?";
-			$unModele=new filmsModele($requete,array($idf));
-			$stmt=$unModele->executer();
-			if ($ligne=$stmt->fetch(PDO::FETCH_OBJ)) { //si le film existe, la on le supprime, puisque la requete DELEE FROM nous n'informera pas de ça en MYSQL
-				$unModele->enleverFichier("pochettes",$ligne->pochette); //on supprime la pochette
-				$requete="DELETE FROM films WHERE idf=?";
-				$unModele=new filmsModele($requete,array($idf));
-				$stmt=$unModele->executer();
-				$tabRes['action']="enlever";
-				$tabRes['msg']="Film ".$idf." bien enleve";
-			}
-			else {
-				$tabRes['action']="enlever";
-				$tabRes['msg']="Film ".$idf." introuvable";
-			}
-		}catch(Exception $e){
-		}finally{
-			unset($unModele);
-		}
-	}  */
-	
+
 	function monProfile(){
 		global $tabRes;
 		$tabRes['action']="monProfile";
@@ -174,11 +149,10 @@
 	function deconnecter(){
 		global $tabRes;
 		$tabRes['action']="deconnecter";
-		if (isset($_SESSION['idConnexion'])) {
+		if (isset($_SESSION['courriel'])) {
 			
-			$_SESSION['idConnexion']=="";
-			$_SESSION['courriel']=="";
-			$_SESSION['idUtilisateur']="";
+			$_SESSION['courriel']==null;
+			$_SESSION['role']=null;
 			
 			session_unset();
 			$tabRes['msg']="ok";
