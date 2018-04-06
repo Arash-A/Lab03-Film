@@ -37,19 +37,15 @@ function InscritUsager(reponse) {
     if (reponse.msg == "ok") {
         msg.innerHTML = "Merci pour vous inscrire chez nous ! vous pouvez maintenant vous connecter";
         msg.className = "text-success";
-        setTimeout(function() {
-            $('#inscription-dropdown').removeClass("show");
-            msg.innerHTML = "";
-            document.getElementById("formEnr").reset();
-            $('#connexion-dropdown').addClass("show");
-        }, 2000);
-
+        document.getElementById('inscriptionF').reset();
     } else if (reponse.msg == "existe") {
         msg.innerHTML = "L'utilisateur avec ce courriel déja existe";
         msg.className = "text-danger";
+        document.getElementById('inscriptionF').reset();
     } else if (reponse.msg == "erreur") {
         msg.innerHTML = "Il y a un probléme d'inscription , veuillez commncer à nouveau";
         msg.className = "text-danger";
+        document.getElementById('inscriptionF').reset();
     }
 
 }
@@ -58,22 +54,14 @@ function seConnecter(reponse) {
     var msg = document.getElementById('errConn');
     //debugger;
     if (reponse.msg == "ok") {
-        msg.innerHTML = "Merci pour vous connecter chez TOURISTIA";
-        msg.className = "text-success";
-        setTimeout(function() {
-            $('#connexion-dropdown').removeClass("show");
-            msg.innerHTML = "";
-            document.getElementById("formConn").reset();
-        }, 1200);
-
-        $('#navDeconnexion').toggleClass("hide");
-        $('#navEnregistrement').toggleClass("hide");
-        $('#navConnexion').toggleClass("hide");
+        $('#login').addClass("hide").removeClass("show");
+        $('#inscription').addClass("hide").removeClass("show");
+        
         if (reponse.role == "admin") {
-            $('#navConnecteAdmin').toggleClass("hide");
+            $('#gestion').addClass("show").removeClass("hide");
         } else {
-            $('#navPanier').toggleClass("hide");
-            $('#monProfile').toggleClass("hide");
+            $('#main').addClass("show").removeClass("hide");
+            $('#menu').addClass("show").removeClass("hide");
         }
 
     } else if (reponse.msg == "mdpIncorrecte") {

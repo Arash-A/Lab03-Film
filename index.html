@@ -19,12 +19,17 @@
 		<script src="gestionFilm/filmControleurVue.js"></script>
 		<script src="gestionFilm/filmRequette.js"></script>
 		<script src="gestionUtilisateur/usagersRequetes.js"></script>
-		<script src="gestionUtilisateur/usagersControleur.js"></script>
+		<script src="gestionUtilisateur/usagersControleurVue.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
-
 		<div id="container" class="container"> 
+				<!--****************** ajax Loader ********************** -->
+				<div id="fadeAj"></div>
+				<div id="modalAj">
+						<img id="loaderAj" src="images/ajax-loader.gif" />
+				</div>
+				<!--***************** Fin ajax loader ******************** -->
 
 			<!--*********************  Header ************************-->
 			<nav id="nav" class="navbar navbar-default">
@@ -43,6 +48,13 @@
 				</div>
 			</nav>
 					<!--*********************  Header ************************-->
+
+					 <!--****************** ajax Loader ********************** -->
+					 <div id="fadeAj"></div>
+					 <div id="modalAj">
+							 <img id="loaderAj" src="images/ajax-loader.gif" />
+					 </div>
+					 <!--***************** Fin ajax loader ******************** -->
 			
 			<div id="menu" class="col-md-2 show">
 				<h4>Catégorie</h4>
@@ -83,9 +95,10 @@
 	        </div>
 			
 			<div class="hide" id="login"> 
-				<form id="loginF">
+				<form id="loginF" name="loginF" method="POST">
 					<fieldset>
 							<legend>CONNEXION</legend>
+							<h5><span id="errConn"></span></h5>
 							<div class="form-group">
 								<label for="courrielLogin">Courriel</label>
 								<input type="email" class="form-control" id="courrielLogin" name="courrielLogin" aria-describedby="emailHelp" placeholder="votre courriel">
@@ -103,6 +116,7 @@
 				<form id="inscriptionF" name="inscriptionF" method="POST" >
 					<fieldset>
 					<legend>INSCRIPTION</legend>
+					<h5><span id="errenr"></span></h5>
 				  <div class="form-group">
 					<label for="nomInscri">Nom</label>
 					<input type="text" class="form-control" id="nomInscri" name="nomInscri" aria-describedby="emailHelp" placeholder="votre nom">

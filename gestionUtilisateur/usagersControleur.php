@@ -20,7 +20,7 @@
 				$tabRes['action']="enregistrer";
 				$tabRes['msg']="existe";
 			}else{
-					$requete=" INSERT INTO users VALUES(0,?,?,?,?,?,0) ";
+					$requete=" INSERT INTO users VALUES(0,?,?,?,?,?,1) ";
 					$unModele=new filmsModele($requete,array($nom,$prenom,$courriel,$hash,$adress));
 					$unModele->executer();
  					$lasId=$unModele->LAST_ID;
@@ -38,10 +38,10 @@
 
 	function connecter(){
 		global $tabRes;	
- 		$courriel=$_POST['inputCourConn'];
-		$mdp=$_POST['inputMotPasseConn'];
+ 		$courriel=$_POST['courrielLogin'];
+		$mdp=$_POST['motdepasseLogin'];
 		try{
-			$requete="SELECT * FROM connexion WHERE courriel = ? ";
+			$requete="SELECT * FROM users WHERE courriel = ? ";
 			$unModele=new filmsModele($requete,array($courriel));
 			$stmt=$unModele->executer();
 			$tabRes['action']="connecter";
@@ -49,24 +49,15 @@
 			
 			 if($stmt->rowCount() > 0){ // si courriel existe
 				$ligne=$stmt->fetch(PDO::FETCH_OBJ);
-				$mdpDB=$ligne->motDePasse;
+				$mdpDB=$ligne->mdp;
 				$hash=password_verify($mdp,$mdpDB);
 				$roleDB=$ligne->role;
-				$idConnexion=$ligne->idConnexion;
 
 				if ($hash) {
 					$tabRes['msg']="ok";
-					$_SESSION['idConnexion']=$idConnexion;
 					$_SESSION['courriel']=$courriel;
 					
-					$requete="SELECT idUtilisateur FROM utilisateur WHERE idConnexion = ? ";
-					$unModele=new filmsModele($requete,array($idConnexion));
-					$stmt=$unModele->executer();
-					$ligne=$stmt->fetch(PDO::FETCH_OBJ);
-					$idUtilisateur=$ligne->idUtilisateur;
-					$_SESSION['idUtilisateur']=$idUtilisateur;
-					
-					if ($roleDB == 'utilisateur') {
+					if ($roleDB == 1) {
 						$tabRes['role']="utilisateur";
 						$_SESSION['role']="utilisateur";
 					} else {

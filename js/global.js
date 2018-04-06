@@ -1,5 +1,6 @@
 $(function(){
 
+
   $('#connexionBtn').on("click", function(){
     $('#menu').addClass("hide").removeClass("show");
     $('#main').addClass("hide").removeClass("show");
@@ -41,9 +42,7 @@ $(function(){
                },
 
                submitHandler: function(form) {  
-                alert("login");	
-                //enregUsager();
-                //alert("valide");	
+                connUsager();
               }
 
            });
@@ -86,9 +85,18 @@ $(function(){
                   }
                },
                submitHandler: function(form) {  
-                alert("inscription");	
                 enregUsager();
               }
 
            });	
+              /***** Ajax loader gif *******/
+   $(document).ajaxStart(function() {
+      $("#fadeAj").css("display", "block");
+      $("#modalAj").css("display", "block");
+    });
+    $(document).ajaxComplete(function() {
+        $("#modalAj").css("display", "none");
+        $("#fadeAj").css("display", "none");
+    });
+    /*****Fin  Ajax loader gif *******/
 })

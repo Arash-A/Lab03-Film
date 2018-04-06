@@ -7,18 +7,17 @@ function checkLoginState() {
   } */
 
 function enregUsager(){
-	alert(1111);
 	var formUsager = new FormData(document.getElementById('inscriptionF'));
 	formUsager.append('action','enregistrer');
 	$.ajax({
 		type : 'POST',
 		url : 'gestionUtilisateur/usagersControleur.php',
 		data : formUsager,
-		dataType : 'text', //text pour le voir en format de string
+		dataType : 'json', //text pour le voir en format de string
 		contentType : false,
 		processData : false,
-		success : function (reponse){ alert(reponse);
-			//usagersVue(reponse); //appel de fonction javascript dans usagersControleurVue.js
+		success : function (reponse){// alert(reponse);
+			usagersVue(reponse); //appel de fonction javascript dans usagersControleurVue.js
 		},
 		fail : function (err){
 			alert(1111);
@@ -27,7 +26,7 @@ function enregUsager(){
 }
 
 function connUsager(){
-	var formconnexion = new FormData(document.getElementById('formConn'));
+	var formconnexion = new FormData(document.getElementById('loginF'));
 	formconnexion.append('action','connecter');
 	$.ajax({
 		type : 'POST',
