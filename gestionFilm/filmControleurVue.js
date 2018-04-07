@@ -1,7 +1,7 @@
  $(function(){
 		
 		    /////////////////// read all films and display  //////////////////////////////		
-			afficherFilm('gestionFilm/lire.php', '0');
+			afficherFilm('gestionFilm/filmRequette.php', '0');
 			setCategorie();
 			
 			
@@ -13,9 +13,9 @@
 					$("li#" + n).addClass("active");
 					alert(this.id);
 					if (this.id == 0) {
-						afficherFilm('gestionFilm/lire.php', '0');
+						afficherFilm('gestionFilm/filmRequette.php', '0');
 					} else {
-						afficherFilm('gestionFilm/lireFilmParCategorie.php', this.id);
+						afficherFilm('gestionFilm/filmRequette.php', this.id);
 					}
 			});			
 			
